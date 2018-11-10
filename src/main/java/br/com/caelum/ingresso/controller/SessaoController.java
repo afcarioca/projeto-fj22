@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SalaDao;
+import br.com.caelum.ingresso.model.form.SessaoForm;
 
 @Controller
 public class SessaoController {
@@ -17,12 +18,15 @@ public class SessaoController {
 	private FilmeDao filmeDao;
 	
 	@GetMapping("/admin/sessao")
-	public ModelAndView form(@RequestParam("salaId") Integer salaId) {
+	public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm form) {
+		
+		form.setSalaId(salaId);
 		
 		ModelAndView modelAndView = new ModelAndView("sessao/sessao");
 		
 		modelAndView.addObject("sala", salaDao.findOne(salaId));
 		modelAndView.addObject("filmes", filmeDao.findAll());
+		modelAndView.addObject("form", form);
 		
 		return modelAndView;
 	}
