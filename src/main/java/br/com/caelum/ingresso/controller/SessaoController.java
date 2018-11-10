@@ -15,6 +15,7 @@ import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SalaDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.model.Sessao;
+import br.com.caelum.ingresso.model.form.SessaoForm;
 
 @Controller
 public class SessaoController {
@@ -26,7 +27,7 @@ public class SessaoController {
 	private SessaoDao sessaoDao;
 	
 	@GetMapping("/admin/sessao")
-	public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm Form) {
+	public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm form) {
 		
 		form.setSalaId(salaId);
 		
@@ -49,6 +50,6 @@ public class SessaoController {
 		
 		sessaoDao.save(sessao);
 		
-		return new ModelAndView("redirect:/admin/sala/" + form.getsalaId() + "/sessoes");		
+		return new ModelAndView("redirect:/admin/sala/" + form.getSalaId() + "/sessoes");		
 	}
 }
