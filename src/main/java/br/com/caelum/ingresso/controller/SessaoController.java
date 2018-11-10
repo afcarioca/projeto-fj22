@@ -13,9 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SalaDao;
-import br.com.caelum.ingresso.model.form.SessaoForm;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.model.Sessao;
+import br.com.caelum.ingresso.model.form.SessaoForm;
 
 @Controller
 public class SessaoController {
